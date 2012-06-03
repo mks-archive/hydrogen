@@ -1,6 +1,6 @@
 ---
 
-config_dir: /Users/mikeschinkel/Sites/hydrogen/
+config_dir: /Users/mikeschinkel/hydrogen/
 
 aliases:
   cc: cache-core

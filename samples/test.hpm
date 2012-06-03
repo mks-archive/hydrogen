@@ -1,0 +1,10 @@
+---
+theme:
+	hatch
+
+plugins:
+	members
+	wordpress-seo
+	- slug: jetpack
+		version: 1.0
+

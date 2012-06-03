@@ -1,0 +1,98 @@
+h1. Hydrogen
+
+By Mike Schinkel of NewClarity LLC
+
+The vision for Hydrogen is to be a WordPress-specific command line tool for configuration management, site provisioning and site deployment/redeployment.
+
+h2. Overview
+
+Hydrogen allows professional WordPress developer to define "package manifests" (in "YAML format":http://en.wikipedia.org/wiki/YAML#Language_elements)
+that they can use to build a deployable "package" (in ZIP format) that can be deployed via FTP to web hosts and completely spun up as
+a running website using the "CPanel API":http://docs.cpanel.net/twiki/bin/view/SoftwareDevelopmentKit/WebHome.
+
+We'd love to see this tool become a defacto standard tool for professional WordPress site builders since there is not currently
+a tool that addresses what Hydrogen addresses so "tell us":https://github.com/getsunrise/hydrogen/issues what you like about it,
+what you don't like about it, and even better, contribute if you can.
+
+h2. Current Functionality
+
+The initial release can:
+
+* Download and cache the latest version of WordPress core, plugins and themes.
+* Queue and Build a package based on a package manifest.
+
+h2. Planned Functionality
+
+Future releases will be able to:
+
+* Handle specific versions and revision levels (i.e. 3.3.1 vs. 3.3.x) of core, plugins, themes.
+* Support pluggables, libraries, files in the uploads directory, etc.
+* Provision a web server on a CPanel host.
+* Upload a package file to a provisioned web server.
+* Unpack a package file into correct directories on a provisioned web server.
+* Configure initial site setting, menus, taxonomies and content.
+* ...and a whole lot more.
+
+h2. Current Concepts
+
+* Hydrogen is a command-line tool using "h".
+* Hydrogen views core, plugins and themes as "components."
+* Hydrogen supports configuration files named .hydrogen in YAML format.
+	* Hydrogen itselfs comes with a minimal config.
+	* Hydrogen's .hydrogen file contains a 'config_dir' directory that you should set after installing Hydrogen.
+	* Hydrogen merges .hydrogen files via a defined hierarchy.
+	* One of the .hydrogen file must have a "site_dir" that points to the site install that will allow Hydrogen to include /wp-load.php.
+	* Hydrogen chose YAML for configuration files because it is easier to read and hand edit than JSON or XML.
+* Hydrogen has been implemented in PHP because it uses WordPress core for much of it's functionality.
+* Hydrogen much have has been implemented in PHP because it uses WordPress core for much of it's functionality.
+* The commands built for Hydrogen should also ultimately work as libraries within a plugin.
+* Hydrogen supports a 'cache' directory where it downloads components.
+* Hydrogen supports a 'package manifest' file in YAML format with '.hpm' extension.
+* Hydrogen supports building a 'package' based on the package manifest file in ZIP format with an '.hpkg' extension.
+* Hydrogen supports the concept of a "source" for components for which currently only "wordpress.org" is valid but with plans to support "github.com", "bitbucket.org" and many more.
+* Hydrogen sources must support the concept of a unique version in some manner to support local caching of components.
+
+h2. Working Commands
+
+* cache-core - Download & cache latest released version of WordPress core.
+* cache-plugin {plugin_slug} - Download & cache latest plugin by slug "{plugin_slug}"
+* cache-theme {theme_slug} - - Download & cache latest theme by slug "{theme_slug}"
+
+* queue-package {package_name} - Copy files from cache into queue subdirectory based upon a "{package_name}.hpm" package manifest file.
+* build-package {package_name} - Combine queue files referenced in "{package_name}.hpm" to create a zipped "{package_name}.hpkg" file.
+
+h2. Probably Future Commands
+
+* deploy-package {package_name} {host_name} {domain} - Deploys test.hpkg to domain "{domain}" on host "{host_name}" defined by name in a .hydrogen config file.
+* More...
+
+h2. Supports
+
+Currently Hydrogen only works on Mac OS X but would love to have others help add support for Linux and Windows.
+
+h2. Installation
+
+* Copy files to /usr/local/bin/hydrogen
+* Edit 'config_dir' variable to point to a directory that will contain your cache, your queue and your specific .hydrogen file.
+* Copy the .hydrogen-sample from the /usr/local/bin/hydrogen/samples directory to your 'config_dir' directory and rename to .hydrogen.
+* Modify your "{config_dir}/.hydrogen" file
+* Configure site_dir, cache_dir, queue_dir, and manifest_dir by replacing {your_username} your your Mac OS X username and {wp_load_site} with the directory where you have a working WordPress install.
+* Add/configure "hosts" as applicable by following the syntax examples in the sample.
+* Run "h show-help" from the command line to make sure it's working.
+
+h2. Participation
+
+* Please fork it and start sending pull requests.
+
+* Ask questions "here":https://github.com/getsunrise/hydrogen/issues especially when things are not working.
+
+* There is a Google Group for email discussion at "h-discuss":http://groups.google.com/group/h-discuss/.
+
+h2. History
+
+* 2012-06-03 - First Release during Atlanta "Finish Weekend":http://finishweekend.com
+
+h2. License
+
+See LICENSE.
+

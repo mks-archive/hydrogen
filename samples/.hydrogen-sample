@@ -1,0 +1,21 @@
+---
+
+site_dir: /Users/{your_username}/Sites/{wp_load_site}/public_html
+cache_dir: /Users/{your_username}/hydrogen/cache
+queue_dir: /Users/{your_username}/hydrogen/queue
+manifests_dir: /Users/{your_username}/hydrogen/manifests
+
+aliases:
+	foo: bar
+
+hosts:
+	aso:
+		host: asmallorange.com
+		domain: yourdomain1.com
+		username: xxxx
+		password: yyyyyyyy
+	bh:
+		host: bluehost.com
+		domain: yourdomain2.com
+		username: xxxx
+		password: yyyyyyyy
