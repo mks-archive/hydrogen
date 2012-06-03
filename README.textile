@@ -1,6 +1,6 @@
 h1. Hydrogen
 
-By Mike Schinkel of NewClarity LLC
+By Mike Schinkel <mike@newclarity.net> of NewClarity LLC
 
 The vision for Hydrogen is to be a WordPress-specific command line tool for configuration management, site provisioning and site deployment/redeployment.
 
