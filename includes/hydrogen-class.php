@@ -141,7 +141,7 @@ final class Hydrogen {
 	 * .hpm : Hydrogen Package Manifest
 	 */
 	static function get_manifest( $manifest_name ) {
-		$filepath = Hydrogen_Config::get_manifest_dir( "{$manifest_name}.hpm" );
+		$filepath = Hydrogen_Config::get_manifests_dir( "{$manifest_name}.hpm" );
 		if ( ! file_exists( $filepath ) ) {
 			Hydrogen::fail( "Package Manifest [{$filepath}] does not exist." );
 		}
