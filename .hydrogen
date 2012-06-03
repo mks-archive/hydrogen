@@ -1,0 +1,19 @@
+---
+
+config_dir: /Users/mikeschinkel/Sites/hydrogen/
+
+aliases:
+  cc: cache-core
+  cp: cache-plugin
+  ct: cache-theme
+  qp: queue-package
+  bp: build-package
+	help: show-help
+
+hosts:
+	example:
+		host: example.com
+		type: CPanel
+		domain: mysite-at-example.com
+		username: example-ftp-username
+		password: example-ftp-password
