@@ -30,6 +30,9 @@ final class Hydrogen {
 	static function initialize() {
 		Hydrogen_Config::load();
 		Hydrogen_Cache::initialize();
+		self::register_command( 'show-pwd' );
+		self::register_command( 'site-vcs' );
+
 		self::register_command( 'show-help' );
 		self::register_command( 'show-manifest' );
 
