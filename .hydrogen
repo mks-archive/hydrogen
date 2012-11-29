@@ -8,7 +8,7 @@ aliases:
   ct: cache-theme
   qp: queue-package
   bp: build-package
-	help: show-help
+  help: show-help
 
 hosts:
 	example:
